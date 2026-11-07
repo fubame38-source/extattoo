@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>EXTattoo Studio · Ücretsiz Tasarım Görüşmesi</title>
+<meta name="description" content="Dövme fikrini sanatçımızla online konuş. 1 saat, ücretsiz, bağlayıcı değil.">
+<meta name="theme-color" content="#0a0a0a">
+<meta property="og:title" content="EXTattoo Studio · Ücretsiz Tasarım Görüşmesi">
+<meta property="og:description" content="Fikrin sende. Çizgisi bizde. 1 saatlik ücretsiz online görüşme.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a0a0a'/%3E%3Cpath d='M8 8L24 24' stroke='%23f2f2f2' stroke-width='3.5' stroke-linecap='round'/%3E%3Cpath d='M24 8L8 24' stroke='%23f2f2f2' stroke-width='1.3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,600;0,700;0,800;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   AYARLAR: Calendly linkini en alttaki <script> içinde değiştir.
+   ============================================================ */
+:root{
+  --bg:#0a0a0a; --bg2:#111111; --line:#232323; --line2:#2f2f2f;
+  --ink:#f2f2f2; --mute:#9a9a9a; --dim:#6b6b6b; --ghost:#333333;
+  --display:'Inter Tight', system-ui, sans-serif;
+  --body:Inter, system-ui, -apple-system, sans-serif;
+  --pad:clamp(16px, 4vw, 48px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;overflow-x:hidden}
+a{color:inherit}
+::selection{background:var(--ink);color:var(--bg)}
+
+/* film greni */
+body::before{content:"";position:fixed;inset:-50%;z-index:50;pointer-events:none;opacity:.07;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grain 1.2s steps(6) infinite}
+@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-3%)}60%{transform:translate(-2%,-1%)}80%{transform:translate(3%,3%)}100%{transform:translate(0,0)}}
+
+.wrap{max-width:1280px;margin:0 auto;padding:0 var(--pad)}
+
+/* ---------- header ---------- */
+header{position:absolute;top:0;left:0;right:0;z-index:20}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none;font-family:var(--display);font-weight:700;font-size:14px;letter-spacing:.2em}
+.status{display:flex;align-items:center;gap:9px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--ink);animation:blink 1.8s ease-in-out infinite}
+@keyframes blink{50%{opacity:.2}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:96px 0 64px;overflow:hidden}
+.hero::after{content:"";position:absolute;left:50%;top:38%;width:min(1100px,140vw);aspect-ratio:1;transform:translate(-50%,-50%);
+  background:radial-gradient(closest-side,rgba(255,255,255,.075),transparent 70%);pointer-events:none}
+.mark{position:relative;z-index:1;display:flex;justify-content:center;user-select:none}
+.mark-in{position:relative;font-family:var(--display);font-weight:800;line-height:.76;letter-spacing:-.065em;font-size:clamp(200px,38vw,560px);padding-right:.06em}
+.mark .outline{display:block;color:transparent;-webkit-text-stroke:1.3px var(--ghost)}
+.mark .fill{position:absolute;inset:0;color:var(--ink);clip-path:inset(100% 0 0 0);animation:fill 2.4s cubic-bezier(.75,0,.2,1) .25s forwards}
+@keyframes fill{to{clip-path:inset(0 0 0 0)}}
+.mark svg{position:absolute;inset:-7% -9%;width:118%;height:114%;pointer-events:none;overflow:visible}
+.mark path{fill:none;stroke:var(--bg);stroke-linecap:round;stroke-dasharray:1600;stroke-dashoffset:1600}
+.mark .s1{stroke-width:15;animation:draw 1.5s cubic-bezier(.6,0,.2,1) 1.5s forwards}
+.mark .s2{stroke-width:3.5;animation:draw 1.1s cubic-bezier(.6,0,.2,1) 2.15s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+
+.hero-foot{position:relative;z-index:1;margin-top:clamp(32px,5vw,56px);display:flex;align-items:flex-end;justify-content:space-between;gap:28px;flex-wrap:wrap;
+  opacity:0;transform:translateY(18px);animation:rise 1s cubic-bezier(.2,.7,.2,1) 2.3s forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+h1{margin:0;font-family:var(--display);font-weight:700;font-size:clamp(36px,4.6vw,66px);line-height:1;letter-spacing:-.035em}
+h1 em{font-style:italic;font-weight:500;color:var(--dim)}
+.lede{margin:16px 0 0;max-width:440px;color:var(--mute);font-size:clamp(15px,1.3vw,17px);line-height:1.6}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:56px;padding:0 30px;border-radius:999px;
+  background:var(--ink);color:var(--bg);text-decoration:none;font-weight:600;font-size:16px;border:0;cursor:pointer;
+  transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(255,255,255,.12)}
+.btn:active{transform:scale(.98)}
+.btn svg{transition:transform .25s ease}
+.btn:hover svg{transform:translate(3px,-3px)}
+.btn small{font-weight:400;color:#5a5a5a;font-size:14px}
+
+.scroll-hint{position:absolute;z-index:1;left:50%;bottom:22px;transform:translateX(-50%);width:1px;height:44px;background:linear-gradient(var(--line2),transparent);overflow:hidden}
+.scroll-hint::after{content:"";position:absolute;left:0;top:-20px;width:1px;height:20px;background:var(--ink);animation:drop 2s ease-in-out infinite}
+@keyframes drop{to{top:44px}}
+
+/* ---------- adımlar ---------- */
+.steps{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.steps .wrap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.step{padding:36px 28px 36px 0;display:flex;gap:18px;align-items:baseline}
+.step + .step{padding-left:28px;border-left:1px solid var(--line)}
+.step b{font-family:var(--display);font-weight:800;font-size:34px;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1px var(--dim);line-height:1}
+.step h3{margin:0 0 6px;font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:-.01em}
+.step p{margin:0;color:var(--mute);font-size:14.5px;line-height:1.55}
+
+/* ---------- randevu ---------- */
+.book{padding:clamp(80px,11vw,150px) 0}
+.book .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,88px);align-items:start}
+.eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+h2{margin:18px 0 0;font-family:var(--display);font-weight:800;font-size:clamp(52px,7.4vw,112px);line-height:.86;letter-spacing:-.055em}
+h2 span{color:transparent;-webkit-text-stroke:1.4px var(--ink)}
+.book-copy p{margin:24px 0 0;max-width:380px;color:var(--mute);line-height:1.6}
+.facts{margin:32px 0 0;padding:0;list-style:none;display:flex;flex-direction:column}
+.facts li{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-top:1px solid var(--line);font-size:15px}
+.facts li:last-child{border-bottom:1px solid var(--line)}
+.facts span{color:var(--mute)}
+
+.cal{position:relative;border-radius:28px;padding:8px;background:linear-gradient(180deg,#1a1a1a,#101010);border:1px solid var(--line2);
+  box-shadow:0 0 0 1px rgba(255,255,255,.03) inset,0 50px 120px rgba(0,0,0,.75)}
+.book .wrap{align-items:center}
+.cal-card{border-radius:22px;background:#0e0e0e;padding:clamp(24px,3vw,36px);display:flex;flex-direction:column;gap:22px}
+.cal-top{display:flex;align-items:center;gap:9px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.cal-card h3{margin:0;font-family:var(--display);font-weight:700;font-size:clamp(24px,2.4vw,32px);letter-spacing:-.03em;line-height:1.1}
+.cal-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.cal-grid div{padding:16px 18px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:4px}
+.cal-grid small{font-size:12px;color:var(--mute)}
+.cal-grid b{font-family:var(--display);font-weight:600;font-size:18px;letter-spacing:-.01em}
+.cal-btn{width:100%}
+.cal-note{margin:-6px 0 0;text-align:center;font-size:12.5px;color:var(--dim)}
+
+/* ---------- galeri ---------- */
+.gallery{padding:clamp(80px,10vw,140px) 0 0}
+.gallery[hidden]{display:none}
+.g-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:28px}
+.g-head h3{margin:12px 0 0;font-family:var(--display);font-weight:800;font-size:clamp(44px,6vw,88px);letter-spacing:-.055em;line-height:.88}
+.g-head h3 span{color:transparent;-webkit-text-stroke:1.3px var(--ink)}
+.g-head a{color:var(--mute);font-size:14px;text-decoration:none;white-space:nowrap}
+.g-head a:hover{color:var(--ink)}
+.g-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.g-item{position:relative;padding:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#111;cursor:zoom-in;aspect-ratio:3/4}
+.g-item:nth-child(even){transform:translateY(32px)}
+.g-item img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05)}
+.g-item span{position:absolute;left:12px;bottom:12px;padding:5px 10px;border-radius:999px;background:rgba(10,10,10,.7);font-size:12px;color:#ddd}
+@media (hover:hover){.g-item img{transition:filter .5s ease,transform .7s cubic-bezier(.2,.7,.2,1)}.g-item:hover img{filter:none;transform:scale(1.04)}}
+.lb{position:fixed;inset:0;z-index:70;background:rgba(5,5,5,.96);display:none;align-items:center;justify-content:center;padding:24px}
+.lb.on{display:flex}
+.lb img{max-width:100%;max-height:86vh;border-radius:10px}
+.lb button{position:absolute;width:48px;height:48px;border-radius:50%;border:1px solid var(--line2);background:#111;color:var(--ink);font-size:20px;cursor:pointer}
+.lb .x{top:16px;right:16px}.lb .p{left:16px;top:50%;margin-top:-24px}.lb .n{right:16px;top:50%;margin-top:-24px}
+
+/* ---------- WhatsApp ---------- */
+.wa{position:fixed;right:20px;bottom:20px;z-index:45;width:58px;height:58px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;
+  box-shadow:0 10px 30px rgba(0,0,0,.5);transition:transform .25s cubic-bezier(.2,.7,.2,1),bottom .35s cubic-bezier(.2,.7,.2,1)}
+.wa:hover{transform:scale(1.06)}
+.wa[hidden]{display:none}
+
+/* ---------- kapanış ---------- */
+.outro{border-top:1px solid var(--line);padding:clamp(48px,7vw,96px) 0 0;overflow:hidden}
+.marquee{display:flex;width:max-content;text-decoration:none;animation:mq 30s linear infinite}
+.marquee:hover{animation-play-state:paused}
+.marquee span{font-family:var(--display);font-weight:800;font-size:clamp(84px,13vw,210px);line-height:1;letter-spacing:-.055em;text-transform:uppercase;padding-right:.35em;white-space:nowrap}
+.marquee span:nth-child(even){color:transparent;-webkit-text-stroke:1.3px var(--dim)}
+@keyframes mq{to{transform:translateX(-50%)}}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:48px;padding-bottom:40px;font-size:13px;color:var(--mute)}
+footer a{text-decoration:none}
+footer a:hover{color:var(--ink)}
+
+/* ---------- mobil sabit buton ---------- */
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:40;padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+  background:rgba(10,10,10,.8);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-top:1px solid var(--line);
+  transform:translateY(110%);transition:transform .45s cubic-bezier(.2,.7,.2,1);display:none}
+.dock.on{transform:none}
+.dock .btn{width:100%}
+
+/* ---------- responsive ---------- */
+@media (max-width:900px){
+  .book .wrap{grid-template-columns:1fr}
+  .steps .wrap{grid-template-columns:1fr}
+  .step,.step + .step{padding:24px 0;border-left:0}
+  .step + .step{border-top:1px solid var(--line)}
+}
+@media (max-width:640px){
+  .status{display:none}
+  .hero{min-height:auto;padding:104px 0 56px;justify-content:flex-start}
+  .mark-in{font-size:clamp(180px,60vw,300px)}
+  .hero-foot{flex-direction:column;align-items:stretch}
+  .hero-foot .btn{width:100%}
+  .scroll-hint{display:none}
+  .cal{padding:6px;border-radius:22px}
+  .cal-card{border-radius:17px}
+  .dock{display:block}
+  footer .wrap{flex-direction:column;padding-bottom:110px}
+  .g-row{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:0 calc(var(--pad) * -1);padding:0 var(--pad) 4px;scroll-padding:0 var(--pad)}
+  .g-row::-webkit-scrollbar{display:none}
+  .g-item{flex:none;width:68vw;scroll-snap-align:start}
+  .g-item:nth-child(even){transform:none}
+  .g-item img{filter:none}
+  .wa{right:16px;bottom:16px;width:54px;height:54px}
+  .dock.on ~ .wa{bottom:92px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="EXTattoo Studio">
+      <svg width="22" height="22" viewBox="0 0 28 28" aria-hidden="true"><path d="M4 4L24 24" stroke="#f2f2f2" stroke-width="3.5" stroke-linecap="round"/><path d="M24 4L4 24" stroke="#f2f2f2" stroke-width="1.2" stroke-linecap="round"/></svg>
+      EXTATTOO
+    </a>
+    <span class="status"><span class="dot"></span>Randevular açık</span>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="mark" aria-hidden="true">
+        <div class="mark-in">
+          <span class="outline">EX</span>
+          <span class="fill">EX</span>
+          <svg viewBox="0 0 1000 800" preserveAspectRatio="none">
+            <path class="s1" d="M40 40L960 760"/>
+            <path class="s2" d="M960 40L40 760"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="hero-foot">
+        <div>
+          <h1>Fikrin sende.<br><em>Çizgisi bizde.</em></h1>
+          <p class="lede">Stüdyoya gelmeden önce dövme fikrini sanatçımızla online konuş. 1 saat, ücretsiz, bağlayıcı değil.</p>
+        </div>
+        <a class="btn" href="#randevu">Ücretsiz randevu al
+          <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 13L13 3M5 3h8v8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+    <span class="scroll-hint" aria-hidden="true"></span>
+  </section>
+
+  <section class="steps" aria-label="Nasıl çalışır">
+    <div class="wrap">
+      <div class="step"><b>01</b><div><h3>Saatini seç</h3><p>Sana uyan gün ve saat. Link e-postana gelir.</p></div></div>
+      <div class="step"><b>02</b><div><h3>Fikrini anlat</h3><p>Bölge, boyut, stil ve varsa referans görseller.</p></div></div>
+      <div class="step"><b>03</b><div><h3>Birlikte netleştirelim</h3><p>Sanatçıyla konuş, tasarımın yönünü belirle.</p></div></div>
+    </div>
+  </section>
+
+  <section class="gallery" id="isler" hidden>
+    <div class="wrap">
+      <div class="g-head">
+        <div><span class="eyebrow">Portfolyo</span><h3>Son <span>işler</span></h3></div>
+        <a id="igLink2" href="#" target="_blank" rel="noopener">Instagram’da tümü →</a>
+      </div>
+      <div class="g-row" id="gRow"></div>
+    </div>
+  </section>
+
+  <section class="book" id="randevu">
+    <div class="wrap">
+      <div class="book-copy">
+        <span class="eyebrow">Randevu</span>
+        <h2>Koltuk<br><span>seni</span><br>bekliyor.</h2>
+        <p>Takvimde sadece boş saatler görünür. Saatini seç, görüşme linki ve hatırlatma e-postana gelsin.</p>
+      </div>
+      <div class="cal">
+        <div class="cal-card">
+          <div class="cal-top"><span class="dot"></span>Randevular açık</div>
+          <h3>Ücretsiz Tasarım Görüşmesi</h3>
+          <div class="cal-grid">
+            <div><small>Süre</small><b>1 saat</b></div>
+            <div><small>Görüşme</small><b>Google Meet</b></div>
+            <div><small>Günler</small><b>Pzt – Cmt</b></div>
+            <div><small>Saatler</small><b>11:00 – 19:00</b></div>
+          </div>
+          <button class="btn cal-btn" type="button" id="calBtn">Takvimi aç, saatini seç
+            <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 13L13 3M5 3h8v8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <p class="cal-note">Ücretsiz · Bağlayıcı değil · Sadece boş saatler görünür</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="outro" aria-label="Randevu al">
+    <a class="marquee" href="#randevu" aria-label="Ücretsiz randevu al">
+      <span>Konuşalım</span><span>✕</span><span>Konuşalım</span><span>✕</span><span>Konuşalım</span><span>✕</span><span>Konuşalım</span><span>✕</span>
+    </a>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© EXTattoo Studio</span>
+    <span id="addr"></span>
+    <a id="igLink" href="#" target="_blank" rel="noopener"></a>
+  </div>
+</footer>
+
+<div class="dock" id="dock">
+  <a class="btn" href="#randevu">Ücretsiz randevu al <small>· 1 saat</small></a>
+</div>
+
+<a class="wa" id="wa" href="#" target="_blank" rel="noopener" aria-label="WhatsApp'tan yaz" hidden>
+  <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>
+</a>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Fotoğraf">
+  <button class="x" type="button" aria-label="Kapat">✕</button>
+  <button class="p" type="button" aria-label="Önceki">‹</button>
+  <img alt="">
+  <button class="n" type="button" aria-label="Sonraki">›</button>
+</div>
+
+<script>
+/* =========================  AYARLAR  ========================= */
+const AYAR = {
+  // Calendly'de etkinliği açtıktan sonra linkini buraya yapıştır:
+  calendly: "https://calendly.com/mimarogluilke/30min",
+  instagram: "extattoos",               // @ olmadan
+  adres: "",                            // örn: "Bağdat Cad. No:12, İstanbul" (boşsa görünmez)
+  // WhatsApp: ülke koduyla, boşluksuz. Örn: "905551234567" (boşsa buton görünmez)
+  whatsapp: "",
+  whatsappMesaj: "Merhaba, dövme tasarımı hakkında bilgi almak istiyorum.",
+  // İş fotoğrafları: ["dosya.jpg", "Etiket"] (etiket isteğe bağlı). Boşsa galeri gizlenir.
+  fotolar: [
+    // ["is1.jpg", "Fine line"],
+    // ["is2.jpg", "Blackwork"],
+  ]
+};
+/* ============================================================= */
+
+(function(){
+  // Calendly: buton takvimi sayfanın üstünde açar (yüklenemezse yeni sekmede açar)
+  const calUrl = AYAR.calendly + (AYAR.calendly.includes('?') ? '&' : '?') + 'hide_gdpr_banner=1';
+  let calLoading = null;
+  const loadCal = () => calLoading || (calLoading = new Promise(res => {
+    const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = 'https://assets.calendly.com/assets/external/widget.css'; document.head.appendChild(css);
+    const s = document.createElement('script'); s.src = 'https://assets.calendly.com/assets/external/widget.js'; s.async = true;
+    s.onload = () => res(true); s.onerror = () => res(false); document.body.appendChild(s);
+    setTimeout(() => res(!!window.Calendly), 4000);
+  }));
+  const calBtn = document.getElementById('calBtn');
+  calBtn.addEventListener('pointerenter', loadCal, {once: true});
+  calBtn.addEventListener('touchstart', loadCal, {once: true, passive: true});
+  if ('requestIdleCallback' in window) requestIdleCallback(() => loadCal(), {timeout: 4000}); else setTimeout(loadCal, 2500);
+  calBtn.addEventListener('click', async () => {
+    if (window.Calendly) return Calendly.initPopupWidget({url: calUrl});
+    const ok = await loadCal();
+    if (ok && window.Calendly) Calendly.initPopupWidget({url: calUrl}); else window.open(AYAR.calendly, '_blank', 'noopener');
+  });
+
+  // Instagram + adres
+  const ig = 'https://instagram.com/' + AYAR.instagram;
+  const igA = document.getElementById('igLink');
+  igA.href = ig; igA.textContent = 'Instagram · @' + AYAR.instagram;
+  document.getElementById('igLink2').href = ig;
+  if (AYAR.adres) document.getElementById('addr').textContent = AYAR.adres;
+
+  // WhatsApp
+  const wa = document.getElementById('wa');
+  if (AYAR.whatsapp) { wa.href = 'https://wa.me/' + AYAR.whatsapp + '?text=' + encodeURIComponent(AYAR.whatsappMesaj); wa.hidden = false; }
+
+  // Galeri + büyütme
+  const fotos = AYAR.fotolar.map(f => Array.isArray(f) ? f : [f, '']);
+  if (fotos.length) {
+    const row = document.getElementById('gRow');
+    fotos.forEach((f, i) => {
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'g-item'; b.setAttribute('aria-label', 'Fotoğrafı büyüt ' + (i + 1));
+      const img = new Image();
+      img.src = f[0]; img.loading = 'lazy'; img.decoding = 'async'; img.alt = 'EXTattoo dövme çalışması' + (f[1] ? ', ' + f[1] : '');
+      b.appendChild(img);
+      if (f[1]) { const s = document.createElement('span'); s.textContent = f[1]; b.appendChild(s); }
+      b.onclick = () => open(i);
+      row.appendChild(b);
+    });
+    document.getElementById('isler').hidden = false;
+    const lb = document.getElementById('lb'), lbImg = lb.querySelector('img');
+    let cur = 0;
+    const show = i => { cur = (i + fotos.length) % fotos.length; lbImg.src = fotos[cur][0]; lbImg.alt = 'EXTattoo dövme çalışması ' + (cur + 1); };
+    function open(i){ show(i); lb.classList.add('on'); document.body.style.overflow = 'hidden'; }
+    const close = () => { lb.classList.remove('on'); document.body.style.overflow = ''; };
+    lb.querySelector('.x').onclick = close;
+    lb.querySelector('.p').onclick = () => show(cur - 1);
+    lb.querySelector('.n').onclick = () => show(cur + 1);
+    lb.onclick = e => { if (e.target === lb) close(); };
+    addEventListener('keydown', e => { if (!lb.classList.contains('on')) return; if (e.key === 'Escape') close(); if (e.key === 'ArrowLeft') show(cur - 1); if (e.key === 'ArrowRight') show(cur + 1); });
+    let sx = 0; lb.addEventListener('touchstart', e => sx = e.touches[0].clientX, {passive: true});
+    lb.addEventListener('touchend', e => { const d = e.changedTouches[0].clientX - sx; if (Math.abs(d) > 50) show(cur + (d < 0 ? 1 : -1)); }, {passive: true});
+  }
+
+  // Mobil sabit buton: hero geçilince çıkar, takvim görününce saklanır
+  const dock = document.getElementById('dock');
+  const hero = document.querySelector('.hero');
+  const book = document.getElementById('randevu');
+  let pastHero = false, atBook = false;
+  const upd = () => dock.classList.toggle('on', pastHero && !atBook);
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(e => { pastHero = !e[0].isIntersecting; upd(); }, {threshold: 0.15}).observe(hero);
+    new IntersectionObserver(e => { atBook = e[0].isIntersecting; upd(); }, {threshold: 0.2}).observe(book);
+  }
+})();
+</script>
+</body>
+</html>
